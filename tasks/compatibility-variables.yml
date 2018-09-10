@@ -25,7 +25,7 @@
     es_install_xpack: true
     es_xpack_users_command: "x-pack/users"
     es_xpack_conf_subdir: "/x-pack"
-  when: 
+  when:
     - not es_open_xpack
     - es_enable_xpack
 

@@ -24,6 +24,8 @@
   with_fileglob:
     - "{{ es_templates_fileglob | default('') }}"
   run_once: True
+  tags:
+    - skip_ansible_lint
 
 - name: Install templates with auth
   uri:
@@ -39,3 +41,5 @@
   with_fileglob:
     - "{{ es_templates_fileglob | default('') }}"
   run_once: True
+  tags:
+    - skip_ansible_lint
