@@ -1,5 +1,33 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    es_scripts: false
+    es_templates: false
+    es_version_lock: false
+    es_version: "6.3.1"
+    es_major_version: "6.x"
+    es_api_port: 9200
+    es_enable_xpack: true
+    es_api_basic_auth_username: admin
+    es_api_basic_auth_password: timewarp1!
+    is_docker: true
+
   roles:
-    - role: php7.1_base
+  - { role: ansible-elasticsearch, es_heap_size: "512m", es_use_repository: false,
+      es_instance_name: "dev-instance",
+      es_package_url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch",
+      es_config: {
+        cluster.name: "dev-cluster",
+        discovery.zen.ping.unicast.hosts: "127.0.0.1",
+        http.port: 9200,
+        transport.tcp.port: 9300,
+        node.data: true,
+        node.master: true,
+        bootstrap.memory_lock: false,
+        network.bind_host: "localhost",
+        network.host: "_site_",
+        script.painless.regex.enabled: true,
+        indices.query.bool.max_clause_count: 102400
+      }
+  }

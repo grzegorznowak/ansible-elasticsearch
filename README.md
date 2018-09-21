@@ -41,6 +41,11 @@ The above installs a single node 'node1' on the hosts 'localhost'.
 
 This role also uses [Ansible tags](http://docs.ansible.com/ansible/playbooks_tags.html). Run your playbook with the `--list-tasks` flag for more information.
 
+## Molecule Tests
+
+* remember to invoke `sudo sysctl -w vm.max_map_count=262144` on the host before running any tests/playbooks
+* otherwise refer to the molecule manual for the basic usage
+
 ## Testing
 
 This playbook uses [Kitchen](https://kitchen.ci/) for CI and local testing.
