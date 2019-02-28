@@ -1,3 +1,39 @@
+## 6.6.0 - 2019/01/29
+
+### Features
+
+* 6.6.0  as default Elasticsearch version
+* [#521](https://github.com/elastic/ansible-elasticsearch/pull/521) - @Crazybus - Allow switching between oss and standard packages
+* [#528](https://github.com/elastic/ansible-elasticsearch/pull/528) - @Fra-nk - Use systemd's RequiresMountsFor
+* [#530](https://github.com/elastic/ansible-elasticsearch/pull/530) - @lde - Use dpkg_selections to lock elasticsearch version
+
+### Fixes
+
+* [#513](https://github.com/elastic/ansible-elasticsearch/pull/513) - @kakoni - Fix typo in elasticsearch-parameters.yml
+* [#522](https://github.com/elastic/ansible-elasticsearch/pull/522) - @SlothOfAnarchy - Fix package download URL
+* [#526](https://github.com/elastic/ansible-elasticsearch/pull/527) - @Fra-nk - Allow not installing Elasticsearch deb repository key
+* [#527](https://github.com/elastic/ansible-elasticsearch/pull/527) - @katsukamaru - Execute java version check in check mode
+
+## 6.5.1.1 - 2018/11/27
+
+### Fixes
+
+* [#516](https://github.com/elastic/ansible-elasticsearch/pull/516) - @Crazybus - Only attempt to copy the old users file if it actually exists
+
+## 6.5.1 - 2018/11/26
+
+### Features
+
+* 6.5.1  as default Elasticsearch version
+
+### Fixes
+
+* [#487](https://github.com/elastic/ansible-elasticsearch/pull/487) - @lazouz - Disable check mode to make install plugins idempotent
+* [#501](https://github.com/elastic/ansible-elasticsearch/pull/501) - @kaxil - Make the order of configs consistent for comparing
+* [#497](https://github.com/elastic/ansible-elasticsearch/pull/497) - @Crazybus - Document es_use_repository and es_custom_package_url 
+* [#504](https://github.com/elastic/ansible-elasticsearch/pull/504) - @victorgs - Using tests as filters is deprecated
+* [#493](https://github.com/elastic/ansible-elasticsearch/pull/493) - @Crazybus - Only use the first found java version if there are multiple installed
+
 ## 6.4.0 - 2018/08/24
 
 ### Features

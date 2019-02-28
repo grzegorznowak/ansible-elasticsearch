@@ -59,6 +59,12 @@ This playbook uses [Kitchen](https://kitchen.ci/) for CI and local testing.
 
 ### Running the tests
 
+Install the ruby dependencies with bundler
+
+```sh
+make setup
+```
+
 If you want to test X-Pack features with a license you will first need to export the `ES_XPACK_LICENSE_FILE` variable.
 ```sh
 export ES_XPACK_LICENSE_FILE="$(pwd)/license.json"
@@ -223,13 +229,13 @@ An example of a two server deployment is shown below.  The first server holds th
     es_data_dirs: 
       - "/opt/elasticsearch"
     es_config:
+      cluster.name: "test-cluster"
       discovery.zen.ping.unicast.hosts: "elastic02:9300"
       http.port: 9200
       transport.tcp.port: 9300
       node.data: true
       node.master: false
       bootstrap.memory_lock: false
-      cluster.name: "test-cluster"
     es_scripts: false
     es_templates: false
     es_version_lock: false
@@ -406,6 +412,8 @@ In addition to es_config, the following parameters allow the customization of th
 * ```es_max_open_files``` the maximum file descriptor number that can be opened by this process. Defaults to 65536.
 * ```es_max_threads``` the maximum number of threads the process can start. Defaults to 2048 (the minimum required by elasticsearch).
 * ```es_debian_startup_timeout``` how long Debian-family SysV init scripts wait for the service to start, in seconds. Defaults to 10 seconds.
+* ```es_use_repository``` Setting this to `false` will stop Ansible from using the official Elastic package repositories.
+* ```es_custom_package_url``` the URL to the rpm or deb package for Ansible to install. When using this you will also need to set `es_use_repository: false` and make sure that the `es_version` matches the version being installed from your custom URL. E.g. `es_custom_package_url: https://downloads.example.com/elasticsearch.rpm`
 
 Earlier examples illustrate the installation of plugins using `es_plugins`.  For officially supported plugins no version or source delimiter is required. The plugin script will determine the appropriate plugin version based on the target Elasticsearch version.  For community based plugins include the full url.  This approach should NOT be used for the X-Pack plugin.  See X-Pack below for details here.
  
