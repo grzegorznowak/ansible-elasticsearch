@@ -43,8 +43,8 @@ This role also uses [Ansible tags](http://docs.ansible.com/ansible/playbooks_tag
 
 ## Molecule Tests
 
-* remember to invoke `sudo sysctl -w vm.max_map_count=262144` on the host before running any tests/playbooks
-* otherwise refer to the molecule manual for the basic usage
+* ivoke `sudo sysctl -w vm.max_map_count=262144` on the host before running any tests/playbooks
+* otherwise refer to the molecule's manual for the basic usage
 
 ## Testing
 

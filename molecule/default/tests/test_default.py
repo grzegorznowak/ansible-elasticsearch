@@ -11,4 +11,4 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     '9200'
 ])
 def test_ports(host, port):
-    assert host.socket("tcp://127.0.0.1:{}".format(port)).is_listening
+    assert host.socket("tcp://::1:{}".format(port)).is_listening

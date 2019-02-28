@@ -5,10 +5,6 @@
   gather_facts: false
   no_log: "{{ not (lookup('env', 'MOLECULE_DEBUG') | bool or molecule_yml.provisioner.log|default(false) | bool) }}"
   tasks:
-    # sudo sysctl -w vm.max_map_count=262144
-    - name: vm max map count update
-      shell: sysctl -w vm.max_map_count=262144
-      become_user: root
     - name: Destroy molecule instance(s)
       lxd_container:
         name: "{{ item.name }}"
