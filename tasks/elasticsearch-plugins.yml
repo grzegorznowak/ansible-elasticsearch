@@ -54,7 +54,7 @@
   set_fact: plugins_to_install="{{ es_plugins | json_query('[*].plugin') | difference(installed_plugins.stdout_lines) | default([]) }}"
   when: not es_plugins_reinstall
   tags:
-  - skip_ansible_lint
+    - skip_ansible_lint
 
 # This removes any currently installed plugins (to prevent errors when reinstalling)
 - name: Remove elasticsearch plugins
@@ -68,7 +68,7 @@
     ES_PATH_CONF: "{{ conf_dir }}"
     ES_INCLUDE: "{{ instance_default_file }}"
   tags:
-  - skip_ansible_lint
+    - skip_ansible_lint
 
 - name: Install elasticsearch plugins
   become: yes
